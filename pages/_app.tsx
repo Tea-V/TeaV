@@ -1,7 +1,7 @@
 import 'cross-fetch/polyfill';
 import NextApp, { Container } from 'next/app';
 import { Provider } from 'graphql-react';
-import { withGraphQL } from 'next-graphql-react';
+import { withGraphQLApp } from 'next-graphql-react';
 
 type Props = {
   graphql: unknown;
@@ -20,4 +20,4 @@ class App extends NextApp<Props> {
   }
 }
 
-export default withGraphQL(App);
+export default withGraphQLApp(App);
