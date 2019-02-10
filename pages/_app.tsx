@@ -3,7 +3,11 @@ import NextApp, { Container } from 'next/app';
 import { Provider } from 'graphql-react';
 import { withGraphQL } from 'next-graphql-react';
 
-class App extends NextApp {
+type Props = {
+  graphql: unknown;
+};
+
+class App extends NextApp<Props> {
   render() {
     const { Component, graphql, pageProps } = this.props;
     return (
