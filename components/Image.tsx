@@ -34,18 +34,15 @@ export default React.memo<Props>(
     }
     return (
       <div ref={setTarget}>
-        {forceLoad ||
-          (isIntersecting && (
-            <img
-              {...!forceLoad && {
-                onLoad: () => setLoading(false),
-              }}
-              alt={alt}
-              sizes={sizes}
-              src={src}
-              srcSet={srcSet}
-            />
-          ))}
+        {(forceLoad || isIntersecting) && (
+          <img
+            alt={alt}
+            onLoad={() => !forceLoad && setLoading(false)}
+            sizes={sizes}
+            src={src}
+            srcSet={srcSet}
+          />
+        )}
         {loading && <Shimmer />}
         <style jsx>{`
           div {
