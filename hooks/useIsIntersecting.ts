@@ -8,10 +8,12 @@ let intersectionObserver: IntersectionObserver;
 
 function callback(entries: IntersectionObserverEntry[]) {
   entries.forEach(({ intersectionRatio, isIntersecting, target }) => {
-    const targetCallback = targetCallbacks.get(target);
-    if (targetCallback && intersectionRatio >= 0) {
-      targetCallback(isIntersecting);
-    }
+    window.requestIdleCallback(() => {
+      const targetCallback = targetCallbacks.get(target);
+      if (targetCallback && intersectionRatio >= 0) {
+        targetCallback(isIntersecting);
+      }
+    });
   });
 }
 
