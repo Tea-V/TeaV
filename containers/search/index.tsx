@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Search() {
-  return <div>test</div>;
-}
+import Shimmer from ':components/Shimmer';
+
+export default () => <Shimmer />;
