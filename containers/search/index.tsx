@@ -1,5 +1,5 @@
 import React from 'react';
 
-import Shimmer from ':components/Shimmer';
+import Image from ':components/Image';
 
-export default () => <Shimmer />;
+export default () => <Image />;
