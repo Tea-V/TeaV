@@ -50,7 +50,10 @@ export default React.memo<Props>(
           }
 
           img {
+            height: 100%;
             object-fit: cover;
+            position: absolute;
+            width: 100%;
           }
         `}</style>
         <style jsx>{`
