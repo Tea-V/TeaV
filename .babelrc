@@ -1,3 +1,16 @@
 {
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          ":components": "./components",
+          ":containers": "./containers",
+          ":theme": "./theme"
+        },
+        "root": ["./"]
+      }
+    ]
+  ],
   "presets": ["@zeit/next-typescript/babel", "next/babel"]
 }
