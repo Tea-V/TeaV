@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "TeaV",
   "devDependencies": {
-    "@types/next": "^7.0.9",
+    "@types/next": "^8.0.0",
     "@types/react": "^16.8.2",
     "@types/react-dom": "^16.8.0",
     "@typescript-eslint/eslint-plugin": "^1.3.0",
