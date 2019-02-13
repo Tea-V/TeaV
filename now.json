@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": "teav.tv",
   "builds": [
     {
       "src": "./next.config.js",
