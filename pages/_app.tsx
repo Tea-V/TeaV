@@ -1,4 +1,3 @@
-import 'cross-fetch/polyfill';
 import NextApp, { Container } from 'next/app';
 import { Provider } from 'graphql-react';
 import { withGraphQLApp } from 'next-graphql-react';

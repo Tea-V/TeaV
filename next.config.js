@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   module.exports = {
     ...withGraphQLConfig(),
+    ...withTypescript(),
     target: 'serverless',
   };
 }
