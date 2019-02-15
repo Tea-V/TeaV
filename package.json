@@ -1,7 +1,6 @@
 {
   "name": "teav",
   "version": "1.0.0",
-  "description": "TeaV",
   "devDependencies": {
     "@types/next": "^8.0.1",
     "@types/react": "^16.8.3",
