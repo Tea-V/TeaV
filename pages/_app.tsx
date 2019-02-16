@@ -1,5 +1,5 @@
 import NextApp, { Container } from 'next/app';
-import { Provider } from 'graphql-react';
+import { GraphQLContext } from 'graphql-react';
 import { withGraphQLApp } from 'next-graphql-react';
 
 type Props = {
@@ -11,9 +11,9 @@ class App extends NextApp<Props> {
     const { Component, graphql, pageProps } = this.props;
     return (
       <Container>
-        <Provider value={graphql}>
+        <GraphQLContext.Provider value={graphql}>
           <Component {...pageProps} />
-        </Provider>
+        </GraphQLContext.Provider>
       </Container>
     );
   }
