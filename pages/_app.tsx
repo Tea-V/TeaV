@@ -3,7 +3,7 @@ import { GraphQLContext } from 'graphql-react';
 import { withGraphQLApp } from 'next-graphql-react';
 
 if (!process.browser) {
-  require('cross-fetch/polyfill');
+  require('node-fetch');
 }
 
 type Props = {
