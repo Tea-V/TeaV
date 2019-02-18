@@ -2,6 +2,10 @@ import NextApp, { Container } from 'next/app';
 import { GraphQLContext } from 'graphql-react';
 import { withGraphQLApp } from 'next-graphql-react';
 
+if (!process.browser) {
+  require('cross-fetch/polyfill');
+}
+
 type Props = {
   graphql: unknown;
 };

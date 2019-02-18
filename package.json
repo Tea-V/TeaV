@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@zeit/next-typescript": "^1.1.1",
+    "cross-fetch": "^3.0.1",
     "graphql-react": "^8.0.0",
     "next": "^8.0.1",
     "next-graphql-react": "^3.0.0",
