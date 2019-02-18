@@ -3,7 +3,8 @@ import { GraphQLContext } from 'graphql-react';
 import { withGraphQLApp } from 'next-graphql-react';
 
 if (!process.browser) {
-  require('node-fetch');
+  // @ts-ignore Property 'fetch' does not exist on type 'Global'.
+  global.fetch = global.fetch || require('node-fetch');
 }
 
 type Props = {
