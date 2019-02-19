@@ -12,17 +12,18 @@ export default class Document extends NextDocument {
           />
           <link
             href="../static/favicon-16x16.png"
-            rel="shortcut icon"
+            rel="icon"
             sizes="16x16"
-            type="image/ico"
+            type="image/png"
           />
           <link
             href="../static/favicon-32x32.png"
-            rel="shortcut icon"
+            rel="icon"
             sizes="32x32"
-            type="image/ico"
+            type="image/png"
           />
           <link href="../static/site.webmanifest" rel="manifest" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
           <style global jsx>{`
             @font-face {
               font-display: optional;
@@ -32,6 +33,7 @@ export default class Document extends NextDocument {
 
             body {
               font-family: Montserrat, sans-serif;
+              margin: 0;
             }
           `}</style>
         </Head>

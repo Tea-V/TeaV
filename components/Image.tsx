@@ -3,7 +3,7 @@ import React from 'react';
 import Shimmer from ':components/Shimmer';
 import useIsIntersecting from ':hooks/useIsIntersecting';
 
-type Props = {
+type ImageProps = {
   alt?: string;
   forceLoad?: boolean;
   height?: string;
@@ -13,7 +13,7 @@ type Props = {
   width?: string;
 };
 
-export default React.memo<Props>(
+export default React.memo<ImageProps>(
   ({
     alt,
     forceLoad = false,

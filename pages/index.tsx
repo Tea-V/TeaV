@@ -1,3 +1,3 @@
-import Search from ':containers/Search';
+import SignIn from ':containers/SignIn';
 
-export default Search;
+export default SignIn;
