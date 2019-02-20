@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from ':components/Button';
+import Spacing from ':components/Spacing';
 import color from ':theme/color';
 
 import Form from './Form';
@@ -9,7 +11,10 @@ export default () => (
   <div>
     <Form>
       <Input required type="email" />
+      <Spacing vertical={2} />
       <Input required type="password" />
+      <Spacing vertical={4} />
+      <Button label="Sign In" />
     </Form>
     <style jsx>{`
       div {

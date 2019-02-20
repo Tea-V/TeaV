@@ -3,6 +3,7 @@ import React from 'react';
 import color from ':theme/color';
 
 export type InputOnlyProps = {
+  autoFocus?: boolean;
   disabled?: boolean;
   inline?: boolean;
   maxLength?: number;
@@ -19,6 +20,7 @@ export type InputOnlyProps = {
 
 export default React.memo<InputOnlyProps>(
   ({
+    autoFocus,
     disabled,
     inline = false,
     maxLength,
@@ -34,6 +36,7 @@ export default React.memo<InputOnlyProps>(
   }) => (
     <>
       <input
+        autoFocus={autoFocus}
         disabled={disabled}
         maxLength={maxLength}
         minLength={minLength}
