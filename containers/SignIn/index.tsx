@@ -11,9 +11,9 @@ export default () => (
   <div>
     <Form>
       <Input required type="email" />
-      <Spacing vertical={2} />
+      <Spacing vertical={1} />
       <Input required type="password" />
-      <Spacing vertical={4} />
+      <Spacing vertical={2} />
       <Button label="Sign In" />
     </Form>
     <style jsx>{`

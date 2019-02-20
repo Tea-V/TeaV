@@ -15,7 +15,10 @@ export default React.memo<FormProps>(({ children }) => (
     <style jsx>{`
       form {
         background-color: ${color.night};
+        display: flex;
+        flex-direction: column;
         height: 100%;
+        justify-content: center;
         padding: ${spacing.xLarge};
         width: 100%;
       }
