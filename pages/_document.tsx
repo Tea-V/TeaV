@@ -1,5 +1,6 @@
 import NextDocument, { Head, Main, NextScript } from 'next/document';
 
+import color from ':theme/color';
 import { fontFace, fontFamily } from ':theme/font';
 
 export default class Document extends NextDocument {
@@ -37,6 +38,7 @@ export default class Document extends NextDocument {
 
             body {
               -webkit-font-smoothing: antialiased;
+              background-color: ${color.granite};
               font-family: ${fontFamily};
             }
           `}</style>

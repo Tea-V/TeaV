@@ -1,11 +1,13 @@
 import React from 'react';
 
+import color from ':theme/color';
+
 export default React.memo(() => (
-  <div aria-busy="true">
+  <div>
     <style jsx>{`
       div {
         animation: shimmer 1s ease-in-out 0s infinite alternate forwards;
-        background-color: currentColor;
+        background-color: ${color.dorian};
         height: 100%;
         position: relative;
         width: 100%;

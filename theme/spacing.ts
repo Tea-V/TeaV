@@ -6,4 +6,5 @@ export default {
   small: `${unit >> 1}px`,
   xLarge: `${unit << 2}px`,
   xSmall: `${unit >> 2}px`,
+  xxLarge: `${unit << 3}px`,
 };
