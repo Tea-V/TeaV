@@ -55,7 +55,6 @@ export default React.memo<InputOnlyProps>(
           background-color: ${color.clear};
           border: 0;
           outline: none;
-          padding: 0;
         }
       `}</style>
       <style jsx>{`

@@ -29,10 +29,15 @@ export default class Document extends NextDocument {
           <style global jsx>{`
             ${fontFace}
 
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
+
             body {
               -webkit-font-smoothing: antialiased;
               font-family: ${fontFamily};
-              margin: 0;
             }
           `}</style>
         </Head>

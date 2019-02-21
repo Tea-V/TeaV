@@ -28,7 +28,7 @@ export default React.memo<FormProps>(({ children, onSubmit }) => (
         form {
           border-radius: ${borderRadius.large};
           height: auto;
-          min-width: 200px;
+          min-width: 375px;
           width: auto;
         }
       }
