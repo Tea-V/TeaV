@@ -12,7 +12,11 @@ const sharedConfig = {
   ...withGraphQLConfig(),
   ...withTypescript(),
   env: {
+    AWS_REGION: process.env.AWS_REGION,
+    DOMAIN: process.env.DOMAIN,
     GRAPHQL_URL: process.env.GRAPHQL_URL,
+    USER_POOL_APP_CLIENT_ID: process.env.USER_POOL_APP_CLIENT_ID,
+    USER_POOL_ID: process.env.USER_POOL_ID,
   },
 };
 
