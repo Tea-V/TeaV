@@ -69,6 +69,10 @@ export default React.memo<InputOnlyProps>(
           color: ${inverse ? color.white : 'inherit'};
           display: ${inline ? 'inline-block' : 'block'};
         }
+
+        input::placeholder {
+          color: ${color.dorian};
+        }
       `}</style>
     </>
   )
