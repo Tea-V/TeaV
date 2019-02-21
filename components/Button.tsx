@@ -34,7 +34,7 @@ export default React.memo<ButtonProps>(({ disabled, label, name, type }) => (
       }
 
       button:hover {
-        filter: brightness(90%);
+        filter: brightness(1.1);
       }
     `}</style>
   </>
