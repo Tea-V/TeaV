@@ -7,14 +7,18 @@ import color from ':theme/color';
 import Form from './Form';
 import Input from './Input';
 
+function handleSubmit() {
+
+}
+
 export default () => (
   <div>
-    <Form>
-      <Input required type="email" />
+    <Form onSubmit={handleSubmit}>
+      <Input autoFocus required type="email" />
       <Spacing vertical={1} />
       <Input required type="password" />
       <Spacing vertical={2} />
-      <Button label="Sign In" />
+      <Button label="Sign In" type="submit" />
     </Form>
     <style jsx>{`
       div {

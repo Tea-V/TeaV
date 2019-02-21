@@ -7,10 +7,11 @@ import spacing from ':theme/spacing';
 
 type FormProps = {
   children: React.ReactNode;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
-export default React.memo<FormProps>(({ children }) => (
-  <form>
+export default React.memo<FormProps>(({ children, onSubmit }) => (
+  <form onSubmit={onSubmit}>
     {children}
     <style jsx>{`
       form {
@@ -27,6 +28,7 @@ export default React.memo<FormProps>(({ children }) => (
         form {
           border-radius: ${borderRadius.large};
           height: auto;
+          min-width: 200px;
           width: auto;
         }
       }

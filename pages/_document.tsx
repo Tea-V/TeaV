@@ -1,5 +1,7 @@
 import NextDocument, { Head, Main, NextScript } from 'next/document';
 
+import { fontFace, fontFamily } from ':theme/font';
+
 export default class Document extends NextDocument {
   render() {
     return (
@@ -25,14 +27,11 @@ export default class Document extends NextDocument {
           <link href="../static/site.webmanifest" rel="manifest" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
           <style global jsx>{`
-            @font-face {
-              font-display: optional;
-              font-family: Montserrat;
-              src: url('https://fonts.googleapis.com/css?family=Montserrat');
-            }
+            ${fontFace}
 
             body {
-              font-family: Montserrat, sans-serif;
+              -webkit-font-smoothing: subpixel-antialiased;
+              font-family: ${fontFamily};
               margin: 0;
             }
           `}</style>
