@@ -35,7 +35,15 @@ export default () => {
       }
       return unobserve;
     }, [target]);
-    return { isIntersecting, setTarget, unobserve };
+    return {
+      isIntersecting,
+      setTarget,
+      unobserve,
+    };
   }
-  return { isIntersecting: false, setTarget() {}, unobserve() {} };
+  return {
+    isIntersecting: false,
+    setTarget() {},
+    unobserve() {},
+  };
 };

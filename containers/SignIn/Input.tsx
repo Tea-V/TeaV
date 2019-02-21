@@ -12,10 +12,6 @@ export default React.memo<InputOnlyProps>((props) => (
         background-color: ${color.slate};
         border-radius: ${borderRadius.medium};
       }
-
-      div:hover {
-        filter: brightness(1.1);
-      }
     `}</style>
   </div>
 ));
