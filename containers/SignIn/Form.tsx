@@ -53,7 +53,7 @@ export default React.memo<FormProps>(({ children }) => {
           form {
             border-radius: ${borderRadius.large};
             height: auto;
-            min-width: 375px;
+            min-width: 414px;
             width: auto;
           }
         }
