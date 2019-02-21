@@ -1,3 +1,3 @@
 import Browse from ':containers/Browse';
 
-export default () => <Browse />;
+export default Browse;

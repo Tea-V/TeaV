@@ -5,10 +5,11 @@ import borderRadius from ':theme/borderRadius';
 import spacing from ':theme/spacing';
 import unit from ':theme/unit';
 
-const headerHeight = 80;
+import Header, { height as headerHeight } from './Header';
 
 export default () => (
   <div className="container">
+    <Header />
     <div className="grid">
       {[...Array(20)].map(() => (
         <div className="cell">
@@ -28,8 +29,7 @@ export default () => (
       .container {
         min-height: 100vh;
         min-width: 100vw;
-        padding: ${headerHeight + unit * 8}px ${spacing.xxLarge}
-          ${spacing.xxLarge};
+        padding: ${headerHeight + unit * 2}px ${spacing.large} ${spacing.large};
       }
 
       .grid {
