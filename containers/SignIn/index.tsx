@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'next/router';
 
 import Button from ':components/Button';
 import Spacing from ':components/Spacing';
@@ -7,7 +8,10 @@ import color from ':theme/color';
 import Form from './Form';
 import Input from './Input';
 
-export default () => {
+export default withRouter(({ router }) => {
+  if (router) {
+    router.prefetch('/browse');
+  }
   return (
     <div>
       <Form>
@@ -42,4 +46,4 @@ export default () => {
       `}</style>
     </div>
   );
-};
+});

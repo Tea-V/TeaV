@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 
 import borderRadius from ':theme/borderRadius';
 import breakpoint from ':theme/breakpoint';
@@ -22,7 +23,7 @@ async function handleSubmit(
     username: formData.get('email') as string,
   });
   if (isAuthenticated) {
-    console.log('oWo');
+    Router.push('/browse');
   } else {
     setFailedToAuthenticate(true);
   }
