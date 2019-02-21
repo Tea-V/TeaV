@@ -12,9 +12,9 @@ function handleSubmit() {}
 export default () => (
   <div>
     <Form onSubmit={handleSubmit}>
-      <Input autoFocus inverse required type="email" />
+      <Input autoFocus inverse placeholder="email" required type="email" />
       <Spacing vertical={1} />
-      <Input inverse required type="password" />
+      <Input inverse placeholder="password" required type="password" />
       <Spacing vertical={2} />
       <Button label="Sign In" type="submit" />
     </Form>

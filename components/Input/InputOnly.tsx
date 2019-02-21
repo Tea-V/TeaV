@@ -2,6 +2,7 @@ import React from 'react';
 
 import color from ':theme/color';
 import font from ':theme/font';
+import spacing from ':theme/spacing';
 
 export type InputOnlyProps = {
   autoFocus?: boolean;
@@ -59,6 +60,7 @@ export default React.memo<InputOnlyProps>(
           background-color: ${color.clear};
           border: 0;
           outline: none;
+          padding: ${spacing.large};
           width: 100%;
         }
       `}</style>
