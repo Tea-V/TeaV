@@ -8,9 +8,12 @@ import color from ':theme/color';
 import Form from './Form';
 import Input from './Input';
 
+let hasPrefetched = false;
+
 export default withRouter(({ router }) => {
-  if (router) {
+  if (!hasPrefetched && router) {
     router.prefetch('/browse');
+    hasPrefetched = true;
   }
   return (
     <div>
