@@ -30,7 +30,7 @@ export default class Document extends NextDocument {
             ${fontFace}
 
             body {
-              -webkit-font-smoothing: subpixel-antialiased;
+              -webkit-font-smoothing: antialiased;
               font-family: ${fontFamily};
               margin: 0;
             }
