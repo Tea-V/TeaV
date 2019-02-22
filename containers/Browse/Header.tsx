@@ -27,7 +27,7 @@ export default React.memo(() => (
       }
 
       header::before {
-        box-shadow: 0 10px 6px -6px ${color.night};
+        box-shadow: 0 8px 6px -6px ${color.night};
         top: ${height - unit * 2}px;
       }
 
