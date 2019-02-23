@@ -14,7 +14,7 @@ export default React.memo<InputOnlyProps>((props) => (
       }
 
       div:hover {
-        filter: brightness(1.05);
+        filter: brightness(1.075);
       }
     `}</style>
   </div>
