@@ -3,6 +3,22 @@ import NextDocument, { Head, Main, NextScript } from 'next/document';
 import color from ':theme/color';
 import { fontFace, fontFamily } from ':theme/font';
 
+const styleOverrides = `
+${fontFace}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: ${color.granite};
+  font-family: ${fontFamily};
+}
+`;
+
 export default class Document extends NextDocument {
   render() {
     return (
@@ -30,21 +46,7 @@ export default class Document extends NextDocument {
             content="initial-scale=1, minimum-scale=1, width=device-width"
             name="viewport"
           />
-          <style>{`
-${fontFace}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  background-color: ${color.granite};
-  font-family: ${fontFamily};
-}
-          `}</style>
+          <style dangerouslySetInnerHTML={{ __html: styleOverrides }} />
         </Head>
         <body>
           <Main />

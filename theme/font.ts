@@ -1,6 +1,6 @@
 export const fontFace = `
 @font-face {
-  font-display: swap;
+  font-display: optional;
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
@@ -9,7 +9,7 @@ export const fontFace = `
 }
 
 @font-face {
-  font-display: swap;
+  font-display: optional;
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
