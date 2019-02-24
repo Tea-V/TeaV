@@ -37,6 +37,7 @@ export default React.memo(() => (
         height: ${height}px;
         position: sticky;
         top: 0;
+        transform: translateZ(0);
         z-index: 3;
       }
     `}</style>

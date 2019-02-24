@@ -40,6 +40,7 @@ export default React.memo<FormProps>(({ children }) => {
       {children}
       <style jsx>{`
         form {
+          backface-visibility: hidden;
           background-color: ${color.night};
           display: flex;
           flex-direction: column;
@@ -47,6 +48,7 @@ export default React.memo<FormProps>(({ children }) => {
           justify-content: center;
           padding: ${spacing.xLarge};
           width: 100%;
+          will-change: transform;
         }
 
         @media ${breakpoint.smallAndAbove} {
@@ -60,9 +62,6 @@ export default React.memo<FormProps>(({ children }) => {
 
         .form_error {
           animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-          backface-visibility: hidden;
-          perspective: 1000px;
-          will-change: transform;
         }
 
         @keyframes shake {
