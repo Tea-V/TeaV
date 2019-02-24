@@ -16,9 +16,8 @@ export default () => (
       </div>
       <style jsx>{`
         .container {
-          min-height: 100vh;
-          min-width: 100vw;
           padding: 0 ${spacing.large} ${spacing.large};
+          width: 100%;
         }
 
         .grid {
