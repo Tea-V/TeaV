@@ -18,7 +18,7 @@ export const fontFace = `
 }
 `;
 
-export const fontFamily = 'Open Sans, sans-serif';
+export const fontFamily = "'Open Sans', sans-serif";
 
 const lineHeightRatio = 1.5;
 
