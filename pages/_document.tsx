@@ -26,21 +26,24 @@ export default class Document extends NextDocument {
             type="image/png"
           />
           <link href="../static/site.webmanifest" rel="manifest" />
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
-          <style global jsx>{`
-            ${fontFace}
+          <meta
+            content="initial-scale=1, minimum-scale=1, width=device-width"
+            name="viewport"
+          />
+          <style>{`
+${fontFace}
 
-            * {
-              box-sizing: border-box;
-              margin: 0;
-              padding: 0;
-            }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-            body {
-              -webkit-font-smoothing: antialiased;
-              background-color: ${color.granite};
-              font-family: ${fontFamily};
-            }
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: ${color.granite};
+  font-family: ${fontFamily};
+}
           `}</style>
         </Head>
         <body>
