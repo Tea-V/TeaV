@@ -11,23 +11,18 @@ export default React.memo(() => (
     <div className="container" />
     <style jsx>{`
       header {
-        backface-visibility: hidden;
         height: ${height + unit * 2}px;
         position: sticky;
         top: -${spacing.large};
         z-index: 1;
       }
 
-      header::after,
       header::before {
+        box-shadow: 0 4px 6px -2px ${color.night};
         content: '';
         display: block;
         height: ${spacing.large};
         position: sticky;
-      }
-
-      header::before {
-        box-shadow: 0 4px 6px -2px ${color.night};
         top: ${height - unit * 2}px;
       }
 
@@ -38,7 +33,7 @@ export default React.memo(() => (
         position: sticky;
         top: 0;
         transform: translateZ(0);
-        z-index: 3;
+        z-index: 2;
       }
     `}</style>
   </header>
