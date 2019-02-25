@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Shimmer from ':components/Shimmer';
-import useIsIntersecting from ':hooks/useIsIntersecting';
+import useIntersectionObserver from ':hooks/useIntersectionObserver';
 
 type ImageProps = {
   alt?: string;
@@ -24,7 +24,7 @@ export default React.memo<ImageProps>(
     width = '100%',
   }) => {
     const [loading, setLoading] = React.useState(!forceLoad);
-    const { isIntersecting, setTarget, unobserve } = useIsIntersecting();
+    const { isIntersecting, setTarget, unobserve } = useIntersectionObserver();
     if (!forceLoad) {
       React.useEffect(() => {
         if (isIntersecting) {

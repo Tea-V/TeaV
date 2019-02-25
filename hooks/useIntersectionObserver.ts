@@ -30,20 +30,12 @@ export default () => {
     };
     React.useEffect(() => {
       if (target) {
-        targetCallbacks.set(target, setIsIntersecting);
         intersectionObserver.observe(target);
+        targetCallbacks.set(target, setIsIntersecting);
       }
       return unobserve;
     }, [target]);
-    return {
-      isIntersecting,
-      setTarget,
-      unobserve,
-    };
+    return { isIntersecting, setTarget, unobserve };
   }
-  return {
-    isIntersecting: false,
-    setTarget() {},
-    unobserve() {},
-  };
+  return { isIntersecting: false, setTarget: undefined, unobserve() {} };
 };
