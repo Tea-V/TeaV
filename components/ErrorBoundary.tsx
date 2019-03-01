@@ -22,12 +22,9 @@ export default class ErrorBoundary extends React.Component<
     return { hasError: true };
   }
 
-  constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = {
-      hasError: false,
-    };
-  }
+  state = {
+    hasError: false,
+  };
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     if (process.env.NODE_ENV !== 'production') {
