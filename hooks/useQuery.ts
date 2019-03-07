@@ -1,13 +1,12 @@
 import { useGraphQL } from 'graphql-react';
 
-export default (optionsOverride = {}, query: string) =>
+export default (query: string, optionsOverride = {}) =>
   useGraphQL({
     fetchOptionsOverride(options: object) {
-      options = {
-        ...options,
+      Object.assign(options, {
         url: process.env.GRAPHQL_URL,
         ...optionsOverride,
-      };
+      });
     },
     operation: {
       query,
