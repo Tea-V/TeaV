@@ -6,24 +6,32 @@ import useQuery from ':hooks/useQuery';
 import Header from './Header';
 import Poster from './Poster';
 
-export default () => {
-  const { cacheValue, loading } = useQuery(`
-    movies {
-      edges {
-        node {
-          title
-        }
+const moviesQuery = `
+query {
+  movies {
+    edges {
+      node {
+        title
       }
     }
-  `);
+  }
+}
+`;
+
+export default () => {
+  const { cacheValue, loading } = useQuery(moviesQuery);
   return (
     <>
       <Header />
       <div className="container">
         <div className="grid">
-          {[...Array(20)].map(() => (
-            <Poster />
-          ))}
+          {!cacheValue
+            ? null
+            : cacheValue.data.movies.edges.map(
+                ({ node: { title } }: { node: { title: string } }) => (
+                  <Poster key={title} />
+                )
+              )}
         </div>
         <style jsx>{`
           .container {
