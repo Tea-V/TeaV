@@ -1,18 +1,33 @@
 const importAuth = import('@aws-amplify/auth').then(({ default: Auth }) => {
-  Auth.configure({
-    cookieStorage: {
-      domain: process.env.DOMAIN,
-      expires: 365,
-      path: '/',
-      secure: true,
-    },
+  const config = {
     mandatorySignIn: true,
     region: process.env.AWS_REGION,
     userPoolId: process.env.USER_POOL_ID,
     userPoolWebClientId: process.env.USER_POOL_APP_CLIENT_ID,
-  });
+  };
+  if (process.env.NODE_ENV === 'production') {
+    Object.assign(config, {
+      cookieStorage: {
+        domain: process.env.DOMAIN,
+        expires: 30,
+        path: '/',
+        secure: true,
+      },
+    });
+  }
+  Auth.configure(config);
   return Auth;
 });
+
+const getToken = async () => {
+  const Auth = await importAuth;
+  try {
+    const currentSession = await Auth.currentSession();
+    return currentSession.getIdToken().getJwtToken();
+  } catch {
+    return null;
+  }
+};
 
 const isAuthenticated = async () => {
   const Auth = await importAuth;
@@ -45,4 +60,4 @@ const signOut = async () => {
   await Auth.signOut();
 };
 
-export { isAuthenticated, signIn, signOut };
+export { getToken, isAuthenticated, signIn, signOut };
