@@ -1,14 +1,21 @@
 const importAuth = import('@aws-amplify/auth').then(({ default: Auth }) => {
+  const {
+    AWS_REGION,
+    DOMAIN,
+    NODE_ENV,
+    USER_POOL_APP_CLIENT_ID,
+    USER_POOL_ID,
+  } = process.env;
   const config = {
     mandatorySignIn: true,
-    region: process.env.AWS_REGION,
-    userPoolId: process.env.USER_POOL_ID,
-    userPoolWebClientId: process.env.USER_POOL_APP_CLIENT_ID,
+    region: AWS_REGION,
+    userPoolId: USER_POOL_ID,
+    userPoolWebClientId: USER_POOL_APP_CLIENT_ID,
   };
-  if (process.env.NODE_ENV === 'production') {
+  if (NODE_ENV === 'production') {
     Object.assign(config, {
       cookieStorage: {
-        domain: process.env.DOMAIN,
+        domain: DOMAIN,
         expires: 30,
         path: '/',
         secure: true,

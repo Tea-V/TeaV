@@ -25,7 +25,7 @@ export default () => {
       <Header />
       <div className="container">
         <div className="grid">
-          {!cacheValue
+          {!cacheValue || !cacheValue.data
             ? null
             : cacheValue.data.movies.edges.map(
                 ({ node: { title } }: { node: { title: string } }) => (
