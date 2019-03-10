@@ -34,9 +34,9 @@
     "react-dom": "^16.8.4"
   },
   "scripts": {
-    "build": "next build",
     "deploy": "now && now alias",
-    "dev": "next dev",
+    "dev": "next",
+    "now-build": "next build",
     "start": "next start"
   }
 }

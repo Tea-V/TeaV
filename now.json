@@ -7,5 +7,11 @@
       "src": "./next.config.js",
       "use": "@now/next"
     }
+  ],
+  "routes": [
+    {
+      "headers": { "cache-control": "immutable" },
+      "src": "/_next/static/(?:[^/]+/chunks|pages|runtime)/.+"
+    }
   ]
 }
