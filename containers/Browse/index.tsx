@@ -6,6 +6,10 @@ import useQuery from ':hooks/useQuery';
 import Header from './Header';
 import Poster from './Poster';
 
+type BrowseProps = {
+  token: string;
+};
+
 const moviesQuery = `
 query {
   movies {
@@ -18,8 +22,8 @@ query {
 }
 `;
 
-export default () => {
-  const { cacheValue, loading } = useQuery(moviesQuery);
+export default ({ token }: BrowseProps) => {
+  const { cacheValue } = useQuery(moviesQuery, token);
   return (
     <>
       <Header />
