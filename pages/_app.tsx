@@ -14,17 +14,22 @@ type AppProps = {
 };
 
 class App extends NextApp<AppProps> {
-  static async getInitialProps({
-    Component,
-    graphql,
-    pageProps,
-  }: AppProps & NextAppContext & { pageProps: any }) {
+  static async getInitialProps(
+    context: AppProps &
+      NextAppContext & {
+        asPath: string;
+        pageProps: any;
+        pathname: string;
+        query: { [key: string]: string };
+      }
+  ) {
+    const { Component, graphql } = context;
     const token = await getToken();
-    return {
-      Component,
-      graphql,
-      pageProps: { ...pageProps, token },
-    };
+    const pageProps = { token };
+    if (Component.getInitialProps) {
+      Object.assign(pageProps, await Component.getInitialProps(context));
+    }
+    return { graphql, pageProps };
   }
 
   render() {
