@@ -3,7 +3,6 @@ const importAuth = import('@aws-amplify/auth').then(({ default: Auth }) => {
     cookieStorage: {
       domain: process.env.DOMAIN,
       expires: 30,
-      path: '/',
       secure: process.env.NODE_ENV === 'production',
     },
     mandatorySignIn: true,

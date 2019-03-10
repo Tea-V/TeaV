@@ -23,13 +23,13 @@ query {
 `;
 
 export default ({ token }: BrowseProps) => {
-  const { cacheValue } = useQuery(moviesQuery, token);
+  const { cacheValue = {} } = useQuery(moviesQuery, token);
   return (
     <>
       <Header />
       <div className="container">
         <div className="grid">
-          {!cacheValue || !cacheValue.data
+          {!cacheValue.data
             ? null
             : cacheValue.data.movies.edges.map(
                 ({ node: { title } }: { node: { title: string } }) => (

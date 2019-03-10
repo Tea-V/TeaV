@@ -35,7 +35,7 @@
   },
   "scripts": {
     "deploy": "now && now alias",
-    "dev": "next",
+    "dev": "next -- -p 80",
     "now-build": "next build",
     "start": "next start"
   }
