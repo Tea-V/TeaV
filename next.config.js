@@ -13,6 +13,8 @@ const {
   USER_POOL_ID,
 } = process.env;
 
+const isProduction = NODE_ENV === 'production';
+
 if (dotenv.error) {
   throw dotenv.error;
 }
@@ -22,14 +24,14 @@ const sharedConfig = {
   ...withTypescript(),
   env: {
     AWS_REGION,
-    DOMAIN,
+    DOMAIN: isProduction ? DOMAIN : `localhost.${DOMAIN}`,
     GRAPHQL_URL,
     USER_POOL_APP_CLIENT_ID,
     USER_POOL_ID,
   },
 };
 
-if (NODE_ENV === 'production') {
+if (isProduction) {
   module.exports = {
     ...sharedConfig,
     target: 'serverless',
