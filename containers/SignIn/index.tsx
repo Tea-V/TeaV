@@ -7,13 +7,12 @@ import Spacing from ':components/Spacing';
 import Form from './Form';
 import Input from './Input';
 
-let hasPrefetched = false;
-
 export default withRouter(({ router }) => {
-  if (!hasPrefetched && router) {
-    router.prefetch('/browse');
-    hasPrefetched = true;
-  }
+  React.useEffect(() => {
+    if (router) {
+      router.prefetch('/browse');
+    }
+  }, []);
   return (
     <div>
       <Form>
