@@ -1,5 +1,6 @@
 import NextApp, { Container, NextAppContext } from 'next/app';
 import { GraphQLContext } from 'graphql-react';
+import { NextContext } from 'next';
 import { withGraphQLApp } from 'next-graphql-react';
 
 import { getToken } from ':utils/authentication';
@@ -14,12 +15,13 @@ type AppProps = {
 };
 
 class App extends NextApp<AppProps> {
-  static async getInitialProps(context: AppProps & NextAppContext) {
+  static async getInitialProps(
+    context: AppProps & NextAppContext & NextContext
+  ) {
     const { Component, graphql } = context;
     const token = await getToken();
     const pageProps = { token };
     if (Component.getInitialProps) {
-      // @ts-ignore
       Object.assign(pageProps, await Component.getInitialProps(context));
     }
     return { graphql, pageProps };
