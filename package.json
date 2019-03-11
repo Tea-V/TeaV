@@ -35,8 +35,8 @@
   },
   "scripts": {
     "deploy": "now && now alias",
-    "dev": "next -- -p 80",
+    "dev": "node server.js",
     "now-build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   }
 }
