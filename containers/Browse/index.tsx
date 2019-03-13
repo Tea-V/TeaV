@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PageContainer from ':components/PageContainer';
 import spacing from ':theme/spacing';
 import useQuery from ':hooks/useQuery';
 
@@ -27,7 +28,7 @@ export default ({ token }: BrowseProps) => {
   return (
     <>
       <Header />
-      <div className="container">
+      <PageContainer>
         <div className="grid">
           {!cacheValue.data
             ? null
@@ -37,19 +38,14 @@ export default ({ token }: BrowseProps) => {
                 )
               )}
         </div>
-        <style jsx>{`
-          .container {
-            padding: 0 ${spacing.large} ${spacing.large};
-            width: 100%;
-          }
-
-          .grid {
-            display: grid;
-            grid-gap: ${spacing.large};
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-          }
-        `}</style>
-      </div>
+      </PageContainer>
+      <style jsx>{`
+        .grid {
+          display: grid;
+          grid-gap: ${spacing.large};
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+      `}</style>
     </>
   );
 };

@@ -1,14 +1,21 @@
 import React from 'react';
 
+import PageContainer from ':components/PageContainer';
 import color from ':theme/color';
 import spacing from ':theme/spacing';
 import unit from ':theme/unit';
+
+import SearchInput from './SearchInput';
 
 const height = 80;
 
 export default React.memo(() => (
   <header>
-    <div className="container" />
+    <PageContainer>
+      <div className="container">
+        <SearchInput />
+      </div>
+    </PageContainer>
     <style jsx>{`
       header {
         height: ${height + unit * 2}px;
@@ -32,7 +39,6 @@ export default React.memo(() => (
         height: ${height}px;
         position: sticky;
         top: 0;
-        transform: translateZ(0);
         z-index: 2;
       }
     `}</style>
