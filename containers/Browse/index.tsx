@@ -30,13 +30,12 @@ export default ({ token }: BrowseProps) => {
       <Header />
       <PageContainer>
         <div className="grid">
-          {!cacheValue.data
-            ? null
-            : cacheValue.data.movies.edges.map(
-                ({ node: { title } }: { node: { title: string } }) => (
-                  <Poster key={title} />
-                )
-              )}
+          {cacheValue.data &&
+            cacheValue.data.movies.edges.map(
+              ({ node: { title } }: { node: { title: string } }) => (
+                <Poster key={title} />
+              )
+            )}
         </div>
       </PageContainer>
       <style jsx>{`
