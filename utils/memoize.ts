@@ -1,14 +1,14 @@
-interface Memo {
+interface MemoizedFn {
   cache: WeakMap<object, any>;
 }
 
 export default <T extends (...args: (object | undefined)[]) => any>(
   fn: T
-): T & Memo => {
+): T & MemoizedFn => {
   const defaultKey = {};
-  const memo = (...args: (object | undefined)[]) => {
+  const memoizedFn = (...args: (object | undefined)[]) => {
     const [key = defaultKey] = args;
-    const { cache } = memo;
+    const { cache } = memoizedFn;
     if (cache.has(key)) {
       return cache.get(key);
     }
@@ -16,7 +16,7 @@ export default <T extends (...args: (object | undefined)[]) => any>(
     cache.set(key, result);
     return result;
   };
-  memo.cache = new WeakMap();
+  memoizedFn.cache = new WeakMap();
   // @ts-ignore Type is not assignable to type 'T'.
-  return memo;
+  return memoizedFn;
 };
