@@ -16,7 +16,7 @@ function getCookies(req) {
     cookie &&
     cookie.split(';').reduce((acc, pair) => {
       const [key, ...values] = pair.split('=');
-      acc[key.trim()] = decodeURIComponent(values.join('='));
+      acc[key] = decodeURIComponent(values.join('='));
       return acc;
     }, {})
   );
@@ -24,10 +24,10 @@ function getCookies(req) {
 
 function getStorage(req) {
   const cookies = getCookies(req) || {};
-  return class CookieStorage {
-    static getItem(key) {
+  return {
+    getItem(key) {
       return cookies[key];
-    }
+    },
   };
 }
 
