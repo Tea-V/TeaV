@@ -2,24 +2,22 @@ import React from 'react';
 
 import PageContainer from ':components/PageContainer';
 import color from ':theme/color';
-import throttle from ':utils/throttle';
-import useEventListener from ':hooks/useEventListener';
+import useIntersectionObserver from ':hooks/useIntersectionObserver';
 
 import SearchInput from './SearchInput';
 
 export default React.memo(() => {
-  const [isDetached, setIsDetached] = React.useState(false);
-  useEventListener(
-    'scroll',
-    throttle(() => setIsDetached(window.pageYOffset > 0), 200)
-  );
+  const { isIntersecting, setTarget } = useIntersectionObserver();
   return (
-    <header>
-      <PageContainer>
-        <div className="container">
-          <SearchInput />
-        </div>
-      </PageContainer>
+    <>
+      <header>
+        <PageContainer>
+          <div className="container">
+            <SearchInput />
+          </div>
+        </PageContainer>
+      </header>
+      <div className="threshold" ref={setTarget} />
       <style jsx>{`
         header {
           background-color: ${color.granite};
@@ -32,7 +30,12 @@ export default React.memo(() => {
         .container {
           display: flex;
         }
+
+        .threshold {
+          position: absolute;
+          top: 0;
+        }
       `}</style>
-    </header>
+    </>
   );
 });
