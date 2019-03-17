@@ -12,30 +12,34 @@ type ButtonProps = {
   type?: string;
 };
 
-export default React.memo<ButtonProps>(({ disabled, label, name, type }) => (
-  <>
-    <button disabled={disabled} name={name} type={type}>
-      {label}
-    </button>
-    <style jsx>{`
-      button {
-        ${font.medium}
-        appearance: none;
-        background-color: ${color.cherry};
-        border-radius: ${borderRadius.medium};
-        border: 0;
-        color: ${color.white};
-        cursor: pointer;
-        display: block;
-        font-weight: ${weight.bolder};
-        outline: none;
-        padding: ${spacing.large};
-        width: 100%;
-      }
+function Button({ disabled, label, name, type }: ButtonProps) {
+  return (
+    <>
+      <button disabled={disabled} name={name} type={type}>
+        {label}
+      </button>
+      <style jsx>{`
+        button {
+          ${font.medium}
+          appearance: none;
+          background-color: ${color.cherry};
+          border-radius: ${borderRadius.medium};
+          border: 0;
+          color: ${color.white};
+          cursor: pointer;
+          display: block;
+          font-weight: ${weight.bolder};
+          outline: none;
+          padding: ${spacing.large};
+          width: 100%;
+        }
 
-      button:hover {
-        filter: brightness(1.1);
-      }
-    `}</style>
-  </>
-));
+        button:hover {
+          filter: brightness(1.1);
+        }
+      `}</style>
+    </>
+  );
+}
+
+export default React.memo(Button);

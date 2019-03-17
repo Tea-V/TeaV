@@ -29,7 +29,7 @@ async function handleSubmit(
   }
 }
 
-export default ({ children }: FormProps) => {
+export default function Form({ children }: FormProps) {
   const [failedToAuthenticate, setFailedToAuthenticate] = React.useState(false);
   return (
     <form
@@ -88,4 +88,4 @@ export default ({ children }: FormProps) => {
       `}</style>
     </form>
   );
-};
+}

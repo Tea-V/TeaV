@@ -6,8 +6,8 @@ import useIntersectionObserver from ':hooks/useIntersectionObserver';
 
 import SearchInput from './SearchInput';
 
-export default React.memo(() => {
-  const { isIntersecting, setTarget } = useIntersectionObserver();
+function Header() {
+  const { setTarget } = useIntersectionObserver();
   return (
     <>
       <header>
@@ -38,4 +38,6 @@ export default React.memo(() => {
       `}</style>
     </>
   );
-});
+}
+
+export default React.memo(Header);

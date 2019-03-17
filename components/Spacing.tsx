@@ -11,15 +11,15 @@ type SpacingProps = {
   vertical?: number;
 };
 
-export default React.memo<SpacingProps>(
-  ({
-    bottom = 0,
-    horizontal = 0,
-    left = 0,
-    right = 0,
-    top = 0,
-    vertical = 0,
-  }) => (
+function Spacing({
+  bottom = 0,
+  horizontal = 0,
+  left = 0,
+  right = 0,
+  top = 0,
+  vertical = 0,
+}: SpacingProps) {
+  return (
     <div>
       <style jsx>{`
         div {
@@ -30,5 +30,7 @@ export default React.memo<SpacingProps>(
         }
       `}</style>
     </div>
-  )
-);
+  );
+}
+
+export default React.memo(Spacing);

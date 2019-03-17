@@ -23,7 +23,7 @@ query {
 }
 `;
 
-export default ({ token }: BrowseProps) => {
+export default function Browse({ token }: BrowseProps) {
   const { cacheValue = {} } = useQuery(moviesQuery, token);
   return (
     <>
@@ -47,4 +47,4 @@ export default ({ token }: BrowseProps) => {
       `}</style>
     </>
   );
-};
+}

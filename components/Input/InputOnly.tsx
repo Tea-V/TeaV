@@ -21,23 +21,23 @@ export type InputOnlyProps = {
   value?: string;
 };
 
-export default React.memo<InputOnlyProps>(
-  ({
-    autoFocus,
-    disabled,
-    inline = false,
-    inverse = false,
-    maxLength,
-    minLength,
-    name,
-    onChange,
-    pattern,
-    placeholder,
-    readOnly,
-    required,
-    type = 'text',
-    value,
-  }) => (
+function InputOnly({
+  autoFocus,
+  disabled,
+  inline = false,
+  inverse = false,
+  maxLength,
+  minLength,
+  name,
+  onChange,
+  pattern,
+  placeholder,
+  readOnly,
+  required,
+  type = 'text',
+  value,
+}: InputOnlyProps) {
+  return (
     <>
       <input
         autoFocus={autoFocus}
@@ -75,5 +75,7 @@ export default React.memo<InputOnlyProps>(
         }
       `}</style>
     </>
-  )
-);
+  );
+}
+
+export default React.memo(InputOnly);

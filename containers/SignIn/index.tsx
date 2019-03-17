@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'next/router';
+import { WithRouterProps, withRouter } from 'next/router';
 
 import Button from ':components/Button';
 import Spacing from ':components/Spacing';
@@ -7,7 +7,7 @@ import Spacing from ':components/Spacing';
 import Form from './Form';
 import Input from './Input';
 
-export default withRouter(({ router }) => {
+function SignIn({ router }: WithRouterProps) {
   React.useEffect(() => {
     if (router) {
       router.prefetch('/browse');
@@ -46,4 +46,6 @@ export default withRouter(({ router }) => {
       `}</style>
     </div>
   );
-});
+}
+
+export default withRouter(SignIn);
