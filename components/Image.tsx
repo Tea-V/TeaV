@@ -36,6 +36,7 @@ function Image({
       {(forceLoad || isIntersecting) && (
         <img
           alt={alt}
+          decoding="async"
           onLoad={() => !forceLoad && setLoading(false)}
           sizes={sizes}
           src={src}
