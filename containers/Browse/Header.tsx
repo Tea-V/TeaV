@@ -6,18 +6,22 @@ import useIntersectionObserver from ':hooks/useIntersectionObserver';
 
 import SearchInput from './SearchInput';
 
-function Header() {
-  const { setTarget } = useIntersectionObserver();
+type HeaderProps = {
+  onSearchInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+function Header({ onSearchInputChange }: HeaderProps) {
+  const { targetRef } = useIntersectionObserver<HTMLDivElement>();
   return (
     <>
       <header>
         <PageContainer>
           <div className="container">
-            <SearchInput />
+            <SearchInput onChange={onSearchInputChange} />
           </div>
         </PageContainer>
       </header>
-      <div className="threshold" ref={setTarget} />
+      <div className="threshold" ref={targetRef} />
       <style jsx>{`
         header {
           background-color: ${color.granite};

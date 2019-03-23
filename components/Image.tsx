@@ -23,7 +23,12 @@ function Image({
   width = '100%',
 }: ImageProps) {
   const [loading, setLoading] = React.useState(!forceLoad);
-  const { isIntersecting, setTarget, unobserve } = useIntersectionObserver();
+  const { isIntersecting, targetRef, unobserve } = useIntersectionObserver<
+    HTMLDivElement
+  >();
+  const onLoad = React.useCallback(() => !forceLoad && setLoading(false), [
+    forceLoad,
+  ]);
   if (!forceLoad) {
     React.useEffect(() => {
       if (isIntersecting) {
@@ -32,12 +37,12 @@ function Image({
     }, [isIntersecting]);
   }
   return (
-    <div ref={setTarget}>
+    <div ref={targetRef}>
       {(forceLoad || isIntersecting) && (
         <img
           alt={alt}
           decoding="async"
-          onLoad={() => !forceLoad && setLoading(false)}
+          onLoad={onLoad}
           sizes={sizes}
           src={src}
           srcSet={srcSet}

@@ -17,25 +17,26 @@ function callback(entries: IntersectionObserverEntry[]) {
   });
 }
 
-export default () => {
+export default <T extends HTMLElement>() => {
   if (process.browser) {
     intersectionObserver =
       intersectionObserver || new IntersectionObserver(callback);
     const [isIntersecting, setIsIntersecting] = React.useState(false);
-    const [target, setTarget] = React.useState<Element | null>(null);
+    const target = React.useRef<T | null>(null);
+    const { current: currentTarget } = target;
     const unobserve = () => {
-      if (target) {
-        intersectionObserver.unobserve(target);
+      if (currentTarget) {
+        intersectionObserver.unobserve(currentTarget);
       }
     };
     React.useEffect(() => {
-      if (target) {
-        intersectionObserver.observe(target);
-        targetCallbacks.set(target, setIsIntersecting);
+      if (currentTarget) {
+        intersectionObserver.observe(currentTarget);
+        targetCallbacks.set(currentTarget, setIsIntersecting);
       }
       return unobserve;
-    }, [target]);
-    return { isIntersecting, setTarget, unobserve };
+    }, [currentTarget]);
+    return { isIntersecting, targetRef: target, unobserve };
   }
-  return { isIntersecting: false, setTarget: undefined, unobserve() {} };
+  return { isIntersecting: false, targetRef: undefined, unobserve() {} };
 };

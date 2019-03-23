@@ -2,10 +2,14 @@ import React from 'react';
 
 import InputOnly from ':components/Input/InputOnly';
 
-function SearchInput() {
+type SearchInputProps = {
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+function SearchInput({ onChange }: SearchInputProps) {
   return (
     <div>
-      <InputOnly />
+      <InputOnly onChange={onChange} />
     </div>
   );
 }

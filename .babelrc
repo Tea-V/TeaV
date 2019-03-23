@@ -1,5 +1,6 @@
 {
   "plugins": [
+    ["babel-plugin-idx"],
     [
       "module-resolver",
       {
@@ -8,6 +9,7 @@
           ":containers": "./containers",
           ":hooks": "./hooks",
           ":theme": "./theme",
+          ":types": "./types",
           ":utils": "./utils"
         },
         "root": ["./"]

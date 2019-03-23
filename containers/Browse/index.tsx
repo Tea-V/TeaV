@@ -1,9 +1,10 @@
 import React from 'react';
+import idx from 'idx';
 
 import PageContainer from ':components/PageContainer';
 import spacing from ':theme/spacing';
 import useQuery from ':hooks/useQuery';
-import { Query } from ':types/schema';
+import { Movie, Query } from ':types/schema';
 
 import Header from './Header';
 import Poster from './Poster';
@@ -26,19 +27,31 @@ query($title: String) {
 `;
 
 export default function Browse({ token }: BrowseProps) {
-  const { cacheValue = {} } = useQuery<{ movies: Query['movies'] }>({
+  const [movies, setMovies] = React.useState<Movie[] | null>(null);
+  const [titleMatch, setTitleMatch] = React.useState<string | null>(null);
+  const { cacheValue } = useQuery<{ movies: Query['movies'] }>({
     query: moviesQuery,
     token,
+    variables: { title: titleMatch },
   });
+  const onSearchInputChange = React.useCallback(
+    ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
+      setTitleMatch(value),
+    []
+  );
+  React.useEffect(() => {
+    const edges = idx(cacheValue, (_) => _.data.movies.edges);
+    if (edges) {
+      const fetchedMovies = edges.map(({ node }) => node);
+      setMovies((movies || []).concat(fetchedMovies));
+    }
+  }, [cacheValue]);
   return (
     <>
-      <Header />
+      <Header onSearchInputChange={onSearchInputChange} />
       <PageContainer>
         <div className="grid">
-          {cacheValue.data &&
-            cacheValue.data.movies.edges.map(({ node: { id, title } }) => (
-              <Poster key={id} />
-            ))}
+          {movies && movies.map(({ id }) => <Poster key={id} />)}
         </div>
       </PageContainer>
       <style jsx>{`

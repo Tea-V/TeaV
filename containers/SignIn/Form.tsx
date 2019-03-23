@@ -31,11 +31,15 @@ async function handleSubmit(
 
 export default function Form({ children }: FormProps) {
   const [failedToAuthenticate, setFailedToAuthenticate] = React.useState(false);
+  const onSubmit = React.useCallback(
+    (event) => handleSubmit(event, setFailedToAuthenticate),
+    []
+  );
   return (
     <form
       autoComplete="off"
       className={failedToAuthenticate ? 'form_error' : undefined}
-      onSubmit={(event) => handleSubmit(event, setFailedToAuthenticate)}
+      onSubmit={onSubmit}
     >
       {children}
       <style jsx>{`
