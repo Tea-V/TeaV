@@ -1,6 +1,17 @@
 import { useGraphQL } from 'graphql-react';
 
-export default (query: string, token: string) =>
+export default <T extends object>({
+  query,
+  token,
+  variables = {},
+}: {
+  query: string;
+  token: string;
+  variables?: object;
+}): {
+  cacheValue?: { data?: T };
+  loading: boolean;
+} =>
   useGraphQL({
     fetchOptionsOverride(options: object) {
       Object.assign(options, {
@@ -12,5 +23,6 @@ export default (query: string, token: string) =>
     },
     operation: {
       query,
+      variables,
     },
   });

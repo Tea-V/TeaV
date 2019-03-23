@@ -19,7 +19,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.5.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "^24.5.0",
     "prettier": "1.16.4",
     "typescript": "^3.3.4000"
@@ -30,8 +30,8 @@
     "next": "^8.0.3",
     "next-graphql-react": "^3.0.0",
     "node-fetch": "^2.3.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
   },
   "scripts": {
     "deploy": "now && now alias",
