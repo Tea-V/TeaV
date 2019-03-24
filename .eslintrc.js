@@ -15,7 +15,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier', 'react-hooks'],
   rules: {
-    '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/prefer-interface': 'off',
     'import/no-unresolved': 'off',
