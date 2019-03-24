@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 interface MemoizedFn {
-  cache: WeakMap<object, unknown>;
+  cache: WeakMap<object, any>;
 }
 
-export default <T extends (...args: (object | undefined)[]) => unknown>(
+export default <T extends (...args: (object | undefined)[]) => any>(
   fn: T
 ): T & MemoizedFn => {
   const defaultKey = {};

@@ -3,6 +3,7 @@ import idx from 'idx';
 
 import PageContainer from ':components/PageContainer';
 import spacing from ':theme/spacing';
+import throttle from ':utils/throttle';
 import useQuery from ':hooks/useQuery';
 import { Movie, Query } from ':types/schema';
 
@@ -35,8 +36,11 @@ export default function Browse({ token }: BrowseProps) {
     variables: { title: titleMatch },
   });
   const onSearchInputChange = React.useCallback(
-    ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
-      setTitleMatch(value),
+    throttle(
+      ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
+        setTitleMatch(value),
+      250
+    ),
     []
   );
   React.useEffect(() => {

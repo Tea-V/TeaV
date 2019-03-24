@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 type Options = {
   trailing: boolean;
 };
@@ -6,15 +8,15 @@ const defaultOptions = {
   trailing: true,
 };
 
-export default <T extends (...args: unknown[]) => unknown>(
+export default <T extends (...args: any[]) => any>(
   fn: T,
   timeout: number,
   options: Options = defaultOptions
 ): T => {
   const { trailing } = options;
   let handle = 0;
-  let lastArgs: unknown[] | null = null;
-  const throttledFn = (...args: unknown[]) => {
+  let lastArgs: any[] | null = null;
+  const throttledFn = (...args: any[]) => {
     if (trailing) {
       lastArgs = args;
     }
