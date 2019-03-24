@@ -22,24 +22,26 @@ function Header({ onSearchInputChange }: HeaderProps) {
         </PageContainer>
       </header>
       <div className="threshold" ref={targetRef} />
-      <style jsx>{`
-        header {
-          background-color: ${color.granite};
-          height: 80px;
-          position: sticky;
-          top: 0;
-          z-index: 1;
-        }
+      <style jsx>
+        {`
+          header {
+            background-color: ${color.granite};
+            height: 80px;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+          }
 
-        .container {
-          display: flex;
-        }
+          .container {
+            display: flex;
+          }
 
-        .threshold {
-          position: absolute;
-          top: 0;
-        }
-      `}</style>
+          .threshold {
+            position: absolute;
+            top: 0;
+          }
+        `}
+      </style>
     </>
   );
 }

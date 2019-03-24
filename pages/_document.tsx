@@ -1,4 +1,5 @@
 import NextDocument, { Head, Main, NextScript } from 'next/document';
+import React from 'react';
 
 import color from ':theme/color';
 import { fontFace, fontFamily } from ':theme/font';
@@ -20,9 +21,9 @@ body {
 `;
 
 export default class Document extends NextDocument {
-  render() {
+  public render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <link
             href="../static/apple-touch-icon.png"
@@ -46,6 +47,7 @@ export default class Document extends NextDocument {
             content="initial-scale=1, minimum-scale=1, width=device-width"
             name="viewport"
           />
+          {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: styleOverrides }} />
         </Head>
         <body>

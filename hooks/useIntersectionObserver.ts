@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Callback = (isIntersecting: boolean) => any;
+type Callback = (isIntersecting: boolean) => void;
 
 const targetCallbacks = new WeakMap<Element, Callback>();
 
@@ -35,7 +35,7 @@ export default <T extends HTMLElement>() => {
         targetCallbacks.set(currentTarget, setIsIntersecting);
       }
       return unobserve;
-    }, [currentTarget]);
+    }, [currentTarget, unobserve]);
     return { isIntersecting, targetRef: target, unobserve };
   }
   return { isIntersecting: false, targetRef: undefined, unobserve() {} };

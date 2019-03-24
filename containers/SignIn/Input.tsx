@@ -8,16 +8,18 @@ function Input(props: InputOnlyProps) {
   return (
     <div>
       <InputOnly {...props} />
-      <style jsx>{`
-        div {
-          background-color: ${color.slate};
-          border-radius: ${borderRadius.medium};
-        }
+      <style jsx>
+        {`
+          div {
+            background-color: ${color.slate};
+            border-radius: ${borderRadius.medium};
+          }
 
-        div:hover {
-          filter: brightness(1.1);
-        }
-      `}</style>
+          div:hover {
+            filter: brightness(1.1);
+          }
+        `}
+      </style>
     </div>
   );
 }

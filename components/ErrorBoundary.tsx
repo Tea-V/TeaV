@@ -16,23 +16,24 @@ export default class ErrorBoundary extends React.Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
 > {
-  static defaultProps = defaultProps;
+  public static defaultProps = defaultProps;
 
-  static getDerivedStateFromError() {
+  public static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  state = {
+  public state = {
     hasError: false,
   };
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  public componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     if (process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line no-console
       console.error(error, errorInfo);
     }
   }
 
-  render() {
+  public render() {
     const { children, fallback } = this.props;
     const { hasError } = this.state;
     return hasError ? fallback : children;

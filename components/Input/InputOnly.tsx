@@ -53,27 +53,31 @@ function InputOnly({
         type={type}
         value={value}
       />
-      <style jsx>{`
-        input {
-          ${font.medium}
-          appearance: none;
-          background-color: ${color.clear};
-          border: 0;
-          outline: none;
-          padding: ${spacing.large};
-          width: 100%;
-        }
-      `}</style>
-      <style jsx>{`
-        input {
-          color: ${inverse ? color.white : 'inherit'};
-          display: ${inline ? 'inline-block' : 'block'};
-        }
+      <style jsx>
+        {`
+          input {
+            ${font.medium}
+            appearance: none;
+            background-color: ${color.clear};
+            border: 0;
+            outline: none;
+            padding: ${spacing.large};
+            width: 100%;
+          }
+        `}
+      </style>
+      <style jsx>
+        {`
+          input {
+            color: ${inverse ? color.white : 'inherit'};
+            display: ${inline ? 'inline-block' : 'block'};
+          }
 
-        input::placeholder {
-          color: ${color.dorian};
-        }
-      `}</style>
+          input::placeholder {
+            color: ${color.dorian};
+          }
+        `}
+      </style>
     </>
   );
 }

@@ -29,13 +29,11 @@ function Image({
   const onLoad = React.useCallback(() => !forceLoad && setLoading(false), [
     forceLoad,
   ]);
-  if (!forceLoad) {
-    React.useEffect(() => {
-      if (isIntersecting) {
-        unobserve();
-      }
-    }, [isIntersecting]);
-  }
+  React.useEffect(() => {
+    if (isIntersecting) {
+      unobserve();
+    }
+  }, [isIntersecting, unobserve]);
   return (
     <div ref={targetRef}>
       {(forceLoad || isIntersecting) && (
@@ -49,28 +47,32 @@ function Image({
         />
       )}
       {loading && <Shimmer />}
-      <style jsx>{`
-        div {
-          position: relative;
-        }
+      <style jsx>
+        {`
+          div {
+            position: relative;
+          }
 
-        img {
-          height: 100%;
-          object-fit: cover;
-          position: absolute;
-          width: 100%;
-        }
-      `}</style>
-      <style jsx>{`
-        div {
-          height: ${height};
-          width: ${width};
-        }
+          img {
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            width: 100%;
+          }
+        `}
+      </style>
+      <style jsx>
+        {`
+          div {
+            height: ${height};
+            width: ${width};
+          }
 
-        img {
-          visibility: ${loading ? 'hidden' : 'visible'};
-        }
-      `}</style>
+          img {
+            visibility: ${loading ? 'hidden' : 'visible'};
+          }
+        `}
+      </style>
     </div>
   );
 }

@@ -9,7 +9,7 @@ type ButtonProps = {
   disabled?: boolean;
   label: string;
   name?: string;
-  type?: string;
+  type?: 'button' | 'reset' | 'submit';
 };
 
 function Button({ disabled, label, name, type }: ButtonProps) {
@@ -18,26 +18,28 @@ function Button({ disabled, label, name, type }: ButtonProps) {
       <button disabled={disabled} name={name} type={type}>
         {label}
       </button>
-      <style jsx>{`
-        button {
-          ${font.medium}
-          appearance: none;
-          background-color: ${color.cherry};
-          border-radius: ${borderRadius.medium};
-          border: 0;
-          color: ${color.white};
-          cursor: pointer;
-          display: block;
-          font-weight: ${weight.bolder};
-          outline: none;
-          padding: ${spacing.large};
-          width: 100%;
-        }
+      <style jsx>
+        {`
+          button {
+            ${font.medium}
+            appearance: none;
+            background-color: ${color.cherry};
+            border-radius: ${borderRadius.medium};
+            border: 0;
+            color: ${color.white};
+            cursor: pointer;
+            display: block;
+            font-weight: ${weight.bolder};
+            outline: none;
+            padding: ${spacing.large};
+            width: 100%;
+          }
 
-        button:hover {
-          filter: brightness(1.1);
-        }
-      `}</style>
+          button:hover {
+            filter: brightness(1.1);
+          }
+        `}
+      </style>
     </>
   );
 }

@@ -1,8 +1,8 @@
 interface MemoizedFn {
-  cache: WeakMap<object, any>;
+  cache: WeakMap<object, unknown>;
 }
 
-export default <T extends (...args: (object | undefined)[]) => any>(
+export default <T extends (...args: (object | undefined)[]) => unknown>(
   fn: T
 ): T & MemoizedFn => {
   const defaultKey = {};

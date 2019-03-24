@@ -43,7 +43,7 @@ export default function Browse({ token }: BrowseProps) {
     const edges = idx(cacheValue, (_) => _.data.movies.edges);
     if (edges) {
       const fetchedMovies = edges.map(({ node }) => node);
-      setMovies((movies || []).concat(fetchedMovies));
+      setMovies((prevMovies) => (prevMovies || []).concat(fetchedMovies));
     }
   }, [cacheValue]);
   return (
@@ -54,13 +54,15 @@ export default function Browse({ token }: BrowseProps) {
           {movies && movies.map(({ id }) => <Poster key={id} />)}
         </div>
       </PageContainer>
-      <style jsx>{`
-        .grid {
-          display: grid;
-          grid-gap: ${spacing.large};
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .grid {
+            display: grid;
+            grid-gap: ${spacing.large};
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          }
+        `}
+      </style>
     </>
   );
 }

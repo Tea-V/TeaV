@@ -10,12 +10,14 @@ export default function PageContainer({ children }: PageContainerProps) {
   return (
     <div>
       {children}
-      <style jsx>{`
-        div {
-          padding: 0 ${spacing.large};
-          width: 100%;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          div {
+            padding: 0 ${spacing.large};
+            width: 100%;
+          }
+        `}
+      </style>
     </div>
   );
 }

@@ -12,7 +12,7 @@ function SignIn({ router }: WithRouterProps) {
     if (router) {
       router.prefetch('/browse');
     }
-  }, []);
+  }, [router]);
   return (
     <div>
       <Form>
@@ -35,15 +35,17 @@ function SignIn({ router }: WithRouterProps) {
         <Spacing vertical={2} />
         <Button label="Sign In" type="submit" />
       </Form>
-      <style jsx>{`
-        div {
-          align-items: center;
-          display: flex;
-          height: 100vh;
-          justify-content: center;
-          width: 100vw;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          div {
+            align-items: center;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            width: 100vw;
+          }
+        `}
+      </style>
     </div>
   );
 }

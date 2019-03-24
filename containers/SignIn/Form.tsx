@@ -42,54 +42,56 @@ export default function Form({ children }: FormProps) {
       onSubmit={onSubmit}
     >
       {children}
-      <style jsx>{`
-        form {
-          background-color: ${color.night};
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-          justify-content: center;
-          padding: ${spacing.xLarge};
-          width: 100%;
-        }
-
-        @media ${breakpoint.smallAndAbove} {
+      <style jsx>
+        {`
           form {
-            border-radius: ${borderRadius.large};
-            height: auto;
-            min-width: 414px;
-            width: auto;
-          }
-        }
-
-        .form_error {
-          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-          will-change: transform;
-        }
-
-        @keyframes shake {
-          10%,
-          90% {
-            transform: translateX(-4px);
+            background-color: ${color.night};
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            padding: ${spacing.xLarge};
+            width: 100%;
           }
 
-          20%,
-          80% {
-            transform: translateX(8px);
+          @media ${breakpoint.smallAndAbove} {
+            form {
+              border-radius: ${borderRadius.large};
+              height: auto;
+              min-width: 414px;
+              width: auto;
+            }
           }
 
-          30%,
-          50%,
-          70% {
-            transform: translateX(-16px);
+          .form_error {
+            animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            will-change: transform;
           }
 
-          40%,
-          60% {
-            transform: translateX(16px);
+          @keyframes shake {
+            10%,
+            90% {
+              transform: translateX(-4px);
+            }
+
+            20%,
+            80% {
+              transform: translateX(8px);
+            }
+
+            30%,
+            50%,
+            70% {
+              transform: translateX(-16px);
+            }
+
+            40%,
+            60% {
+              transform: translateX(16px);
+            }
           }
-        }
-      `}</style>
+        `}
+      </style>
     </form>
   );
 }

@@ -1,4 +1,7 @@
+/* eslint-disable global-require */
+
 import NextApp, { Container, NextAppContext } from 'next/app';
+import React from 'react';
 import { GraphQLContext } from 'graphql-react';
 import { NextContext } from 'next';
 import { withGraphQLApp } from 'next-graphql-react';
@@ -15,7 +18,7 @@ type AppProps = {
 };
 
 class App extends NextApp<AppProps> {
-  static async getInitialProps(
+  public static async getInitialProps(
     context: AppProps & NextAppContext & NextContext
   ) {
     const { Component, graphql } = context;
@@ -27,7 +30,7 @@ class App extends NextApp<AppProps> {
     return { graphql, pageProps };
   }
 
-  render() {
+  public render() {
     const { Component, graphql, pageProps } = this.props;
     return (
       <Container>

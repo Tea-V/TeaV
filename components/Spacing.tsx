@@ -21,14 +21,16 @@ function Spacing({
 }: SpacingProps) {
   return (
     <div>
-      <style jsx>{`
-        div {
-          margin-bottom: ${unit * (bottom || vertical)}px;
-          margin-left: ${unit * (left || horizontal)}px;
-          margin-right: ${unit * (right || horizontal)}px;
-          margin-top: ${unit * (top || vertical)}px;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          div {
+            margin-bottom: ${unit * (bottom || vertical)}px;
+            margin-left: ${unit * (left || horizontal)}px;
+            margin-right: ${unit * (right || horizontal)}px;
+            margin-top: ${unit * (top || vertical)}px;
+          }
+        `}
+      </style>
     </div>
   );
 }
