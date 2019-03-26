@@ -10,7 +10,9 @@
   ],
   "routes": [
     {
-      "headers": { "cache-control": "immutable" },
+      "headers": {
+        "cache-control": "immutable"
+      },
       "src": "/_next/static/(?:[^/]+/chunks|pages|runtime)/.+"
     }
   ]

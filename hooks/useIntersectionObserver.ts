@@ -3,7 +3,6 @@ import React from 'react';
 type Callback = (isIntersecting: boolean) => void;
 
 const targetCallbacks = new WeakMap<Element, Callback>();
-
 let intersectionObserver: IntersectionObserver;
 
 function callback(entries: IntersectionObserverEntry[]) {

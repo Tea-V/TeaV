@@ -1,15 +1,21 @@
 import { useGraphQL } from 'graphql-react';
 
+export interface CacheValue<T extends object> {
+  data?: T;
+}
+
+export interface UseQueryArgs {
+  query: string;
+  token: string;
+  variables?: object;
+}
+
 export default <T extends object>({
   query,
   token,
   variables = {},
-}: {
-  query: string;
-  token: string;
-  variables?: object;
-}): {
-  cacheValue?: { data?: T };
+}: UseQueryArgs): {
+  cacheValue?: CacheValue<T>;
   loading: boolean;
 } =>
   useGraphQL({
