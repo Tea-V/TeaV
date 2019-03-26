@@ -17,9 +17,8 @@ export default <T extends object>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
   React.useEffect(() => {
-    setCacheValue(
-      (prevCacheValue = {}) =>
-        fetchedCacheValue && deepMerge(prevCacheValue, fetchedCacheValue)
+    setCacheValue((prevCacheValue) =>
+      deepMerge(prevCacheValue, fetchedCacheValue)
     );
   }, [fetchedCacheValue]);
   return { cacheValue, loading };
