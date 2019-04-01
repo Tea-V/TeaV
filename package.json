@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@aws-amplify/auth": "^1.2.19",
-    "graphql-react": "^8.1.1",
+    "graphql-react": "^8.1.2",
     "idx": "^2.5.5",
     "next": "^8.0.3",
     "next-graphql-react": "^3.0.0",
