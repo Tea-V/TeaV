@@ -43,10 +43,6 @@ export default class Document extends NextDocument {
             type="image/png"
           />
           <link href="../static/site.webmanifest" rel="manifest" />
-          <meta
-            content="initial-scale=1, minimum-scale=1, width=device-width"
-            name="viewport"
-          />
           {/* eslint-disable-next-line react/no-danger */}
           <style dangerouslySetInnerHTML={{ __html: styleOverrides }} />
         </Head>

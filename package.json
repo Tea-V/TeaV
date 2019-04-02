@@ -21,7 +21,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.6.0",
-    "jest": "^24.5.0",
+    "jest": "^24.6.0",
     "prettier": "1.16.4",
     "typescript": "^3.4.1"
   },
@@ -29,7 +29,7 @@
     "@aws-amplify/auth": "^1.2.19",
     "graphql-react": "^8.1.2",
     "idx": "^2.5.5",
-    "next": "^8.0.3",
+    "next": "^8.0.4",
     "next-graphql-react": "^3.0.0",
     "node-fetch": "^2.3.0",
     "react": "^16.8.6",
