@@ -39,6 +39,7 @@ function Image({
       {(forceLoad || isIntersecting) && (
         <img
           alt={alt}
+          className={!loading ? 'img_loaded' : undefined}
           decoding="async"
           onLoad={onLoad}
           sizes={sizes}
@@ -56,8 +57,14 @@ function Image({
           img {
             height: 100%;
             object-fit: cover;
+            opacity: 0;
             position: absolute;
+            transition: opacity 300ms ease-in;
             width: 100%;
+          }
+
+          .img_loaded {
+            opacity: 1;
           }
         `}
       </style>
@@ -66,10 +73,6 @@ function Image({
           div {
             height: ${height};
             width: ${width};
-          }
-
-          img {
-            visibility: ${loading ? 'hidden' : 'visible'};
           }
         `}
       </style>
