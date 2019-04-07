@@ -4,6 +4,7 @@ type ErrorBoundaryProps = {
   children: React.ReactNode;
   fallback: React.ReactNode;
 };
+
 type ErrorBoundaryState = Readonly<{
   hasError: boolean;
 }>;

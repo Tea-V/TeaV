@@ -13,6 +13,7 @@ import Poster from './Poster';
 type BrowseProps = {
   token: string;
 };
+
 type MoviesQuery = {
   movies: Query['movies'];
 };
