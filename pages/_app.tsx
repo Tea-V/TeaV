@@ -2,7 +2,7 @@
 
 import NextApp, { Container, NextAppContext } from 'next/app';
 import React from 'react';
-import { GraphQLContext } from 'graphql-react';
+import { GraphQLProvider } from 'graphql-react';
 import { NextContext } from 'next';
 import { withGraphQLApp } from 'next-graphql-react';
 
@@ -34,9 +34,9 @@ class App extends NextApp<AppProps> {
     const { Component, graphql, pageProps } = this.props;
     return (
       <Container>
-        <GraphQLContext.Provider value={graphql}>
+        <GraphQLProvider graphql={graphql}>
           <Component {...pageProps} />
-        </GraphQLContext.Provider>
+        </GraphQLProvider>
       </Container>
     );
   }
