@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "@types/next": "^8.0.3",
-    "@types/react": "^16.8.13",
+    "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
@@ -23,7 +23,7 @@
     "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "^24.7.1",
     "prettier": "^1.17.0",
-    "typescript": "^3.4.3"
+    "typescript": "^3.4.4"
   },
   "dependencies": {
     "@aws-amplify/auth": "^1.2.22",
