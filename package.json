@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "devDependencies": {
-    "@types/next": "^8.0.3",
+    "@types/next": "^8.0.4",
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
@@ -15,7 +15,7 @@
     "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
@@ -23,7 +23,7 @@
     "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "^24.7.1",
     "prettier": "^1.17.0",
-    "typescript": "^3.4.4"
+    "typescript": "^3.4.5"
   },
   "dependencies": {
     "@aws-amplify/auth": "^1.2.22",
@@ -31,7 +31,7 @@
     "idx": "^2.5.5",
     "next": "^8.1.0",
     "next-graphql-react": "^3.0.1",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
