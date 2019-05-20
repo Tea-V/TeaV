@@ -35,7 +35,7 @@
     "react-dom": "^16.8.6"
   },
   "scripts": {
-    "deploy": "now && now alias",
+    "deploy": "now && now --target production",
     "dev": "node server.js",
     "now-build": "next build",
     "start": "NODE_ENV=production node server.js"
