@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
-const webpack = require('webpack');
+const { IgnorePlugin } = require('webpack');
 const { withGraphQLConfig } = require('next-graphql-react/server');
 
 const { NODE_ENV } = process.env;
@@ -18,7 +18,7 @@ const nextConfig = {
         path: path.join(__dirname, '.env'),
         systemvars: true,
       }),
-      new webpack.IgnorePlugin(/^encoding$/, /node-fetch/)
+      new IgnorePlugin(/^encoding$/, /node-fetch/)
     );
     return config;
   },
