@@ -1,5 +1,5 @@
 import React from 'react';
-import { WithRouterProps, withRouter } from 'next/router';
+import { PublicRouterInstance, withRouter } from 'next/router';
 
 import Button from ':components/Button';
 import Spacing from ':components/Spacing';
@@ -7,7 +7,11 @@ import Spacing from ':components/Spacing';
 import Form from './Form';
 import Input from './Input';
 
-function SignIn({ router }: WithRouterProps) {
+type SignInProps = {
+  router: PublicRouterInstance;
+};
+
+function SignIn({ router }: SignInProps) {
   React.useEffect(() => {
     if (router) {
       router.prefetch('/browse');

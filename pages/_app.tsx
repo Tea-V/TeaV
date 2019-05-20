@@ -1,9 +1,9 @@
 /* eslint-disable global-require */
 
-import NextApp, { Container, NextAppContext } from 'next/app';
+import NextApp, { AppContext, Container } from 'next/app';
 import React from 'react';
 import { GraphQLProvider } from 'graphql-react';
-import { NextContext } from 'next';
+import { NextPageContext } from 'next';
 import { withGraphQLApp } from 'next-graphql-react';
 
 import { getToken } from ':utils/authentication';
@@ -19,7 +19,7 @@ type AppProps = {
 
 class App extends NextApp<AppProps> {
   public static async getInitialProps(
-    context: AppProps & NextAppContext & NextContext
+    context: AppContext & AppProps & NextPageContext
   ) {
     const { Component, graphql } = context;
     const token = await getToken();

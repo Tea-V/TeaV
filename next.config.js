@@ -2,7 +2,6 @@
 
 const dotenv = require('dotenv').config();
 const webpack = require('webpack');
-const withTypescript = require('@zeit/next-typescript');
 const { withGraphQLConfig } = require('next-graphql-react/server');
 
 const {
@@ -29,7 +28,6 @@ const nextConfig = {
 
 const sharedConfig = {
   ...withGraphQLConfig(nextConfig),
-  ...withTypescript(nextConfig),
   env: {
     AWS_REGION,
     DOMAIN: isProduction ? DOMAIN : `localhost.${DOMAIN}`,

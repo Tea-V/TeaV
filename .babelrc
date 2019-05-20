@@ -16,5 +16,5 @@
       }
     ]
   ],
-  "presets": ["@zeit/next-typescript/babel", "next/babel"]
+  "presets": ["next/babel"]
 }
