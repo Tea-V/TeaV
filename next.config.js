@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
 
-const dotenv = require('dotenv').config();
+require('dotenv').config();
+
+const Dotenv = require('dotenv-webpack');
+const path = require('path');
 const webpack = require('webpack');
 const { withGraphQLConfig } = require('next-graphql-react/server');
 
@@ -15,13 +18,15 @@ const {
 
 const isProduction = NODE_ENV === 'production';
 
-if (dotenv.error) {
-  throw dotenv.error;
-}
-
 const nextConfig = {
   webpack(config) {
-    config.plugins.push(new webpack.IgnorePlugin(/^encoding$/, /node-fetch/));
+    config.plugins.push(
+      new Dotenv({
+        path: path.join(__dirname, '.env'),
+        systemvars: true,
+      }),
+      new webpack.IgnorePlugin(/^encoding$/, /node-fetch/)
+    );
     return config;
   },
 };
