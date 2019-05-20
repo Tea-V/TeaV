@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
 
-require('dotenv').config();
-
 const Dotenv = require('dotenv-webpack');
+const dotenv = require('dotenv').config();
 const path = require('path');
 const { IgnorePlugin } = require('webpack');
 const { withGraphQLConfig } = require('next-graphql-react/server');
+
+if (dotenv.error) {
+  throw dotenv.error;
+}
 
 const { NODE_ENV } = process.env;
 
