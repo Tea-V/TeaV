@@ -42,7 +42,7 @@ function SignIn({ router }: WithRouterProps) {
             display: flex;
             height: 100vh;
             justify-content: center;
-            width: 100vw;
+            width: calc(100vw - (100vw - 100%));
           }
         `}
       </style>
