@@ -7,7 +7,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { withGraphQLConfig } = require('next-graphql-react/server');
 
-const { DOMAIN, NODE_ENV } = process.env;
+const { NODE_ENV } = process.env;
 
 const isProduction = NODE_ENV === 'production';
 
@@ -36,8 +36,5 @@ if (isProduction) {
 } else {
   module.exports = {
     ...sharedConfig,
-    env: {
-      DOMAIN: `localhost.${DOMAIN}`,
-    },
   };
 }
