@@ -7,14 +7,7 @@ const path = require('path');
 const webpack = require('webpack');
 const { withGraphQLConfig } = require('next-graphql-react/server');
 
-const {
-  AWS_REGION,
-  DOMAIN,
-  GRAPHQL_URL,
-  NODE_ENV,
-  USER_POOL_APP_CLIENT_ID,
-  USER_POOL_ID,
-} = process.env;
+const { DOMAIN, NODE_ENV } = process.env;
 
 const isProduction = NODE_ENV === 'production';
 
@@ -33,13 +26,6 @@ const nextConfig = {
 
 const sharedConfig = {
   ...withGraphQLConfig(nextConfig),
-  env: {
-    AWS_REGION,
-    DOMAIN: isProduction ? DOMAIN : `localhost.${DOMAIN}`,
-    GRAPHQL_URL,
-    USER_POOL_APP_CLIENT_ID,
-    USER_POOL_ID,
-  },
 };
 
 if (isProduction) {
@@ -50,5 +36,8 @@ if (isProduction) {
 } else {
   module.exports = {
     ...sharedConfig,
+    env: {
+      DOMAIN: `localhost.${DOMAIN}`,
+    },
   };
 }
