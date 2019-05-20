@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
 
 const dotenv = require('dotenv').config();
+const webpack = require('webpack');
 const withTypescript = require('@zeit/next-typescript');
 const { withGraphQLConfig } = require('next-graphql-react/server');
 
@@ -19,9 +20,16 @@ if (dotenv.error) {
   throw dotenv.error;
 }
 
+const nextConfig = {
+  webpack(config) {
+    config.plugins.push(new webpack.IgnorePlugin(/^encoding$/, /node-fetch/));
+    return config;
+  },
+};
+
 const sharedConfig = {
-  ...withGraphQLConfig(),
-  ...withTypescript(),
+  ...withGraphQLConfig(nextConfig),
+  ...withTypescript(nextConfig),
   env: {
     AWS_REGION,
     DOMAIN: isProduction ? DOMAIN : `localhost.${DOMAIN}`,
