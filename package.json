@@ -30,7 +30,7 @@
     "idx": "^2.5.6",
     "next": "^9.0.7",
     "next-graphql-react": "^4.0.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1"
   },
